@@ -57,7 +57,7 @@ const App = () => {
     const mom = MomState.slice()
     const country = CountryState.slice()
 
-    return (lname.substr(0,3)+name.substr(0,2).toLowerCase()+" "+mom.substr(0,2)+country.substr(0,3).toLowerCase())
+    return (lname.substr(0,3)+name.substr(0,2)+" "+mom.substr(0,2)+country.substr(0,3))
   }
 
   const getStormTrooperName = () =>{
@@ -65,14 +65,14 @@ const App = () => {
     const slname = SecondLastNameState.slice()
     const birth = DayState
 
-    return(lname.substr(0,1)+slname.substr(0,1)+"-"+birth)
+    return(lname.substr(0,1).toUpperCase()+slname.substr(0,1).toUpperCase()+"-"+birth)
   }
 
   const getDigimonName = () =>{
     const lname = LastNameState.slice()
     const name = NameState.slice()
 
-    return(lname.substr(0,3)+name.substr(0,2).toLowerCase()+"mon")
+    return(lname.substr(0,3)+name.substr(0,2)+"mon")
   }
 
   const getFunnyName = () =>{
@@ -83,7 +83,7 @@ const App = () => {
       return null
     }
     else{
-      return(FunnyNames.names[name.substr(0,1)]+" "+FunnyNames.lastnames[lname.substr(0,1)])}
+      return(FunnyNames.names[name.substr(0,1).toUpperCase()]+" "+FunnyNames.lastnames[lname.substr(0,1).toUpperCase()])}
   }
 
   return (
