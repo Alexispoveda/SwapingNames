@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import './App.css';
 
+//Data for funny names
+import FunnyNames from './data/funny.json'
+
 //Material UI
 import { Container, Box, Typography, TextField, Paper } from '@material-ui/core'
 
@@ -13,6 +16,7 @@ let days = []
 for (let index = 1; index <= 31; index++) { days.push(<option value={index}>{index}</option>) }
 
 const App = () => {
+  console.log(FunnyNames)
 
   //State
   const [NameState, setNameState] = useState("")
@@ -71,6 +75,17 @@ const App = () => {
     return(lname.substr(0,3)+name.substr(0,2).toLowerCase()+"mon")
   }
 
+  const getFunnyName = () =>{
+    const name = NameState.slice()
+    const lname = LastNameState.slice()
+  
+    if(name==="" || lname===""){
+      return null
+    }
+    else{
+      return(FunnyNames.names[name.substr(0,1)]+" "+FunnyNames.lastnames[lname.substr(0,1)])}
+  }
+
   return (
     <Container className="Container" maxWidth="xl" disableGutters="true">
 
@@ -99,6 +114,11 @@ const App = () => {
           <Paper className="Name" elevation="3">
             <Typography variant="h6">Digimon Name</Typography>
             <Typography variant="h7">{getDigimonName()}</Typography>
+          </Paper>
+
+          <Paper className="Name" elevation="3">
+            <Typography variant="h6">Funny Name</Typography>
+            <Typography variant="h7">{getFunnyName()}</Typography>
           </Paper>
       </Box>
 
