@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import './App.css';
 
 //Material UI
-import { Container, Box, Typography, TextField, Button, Paper } from '@material-ui/core'
+import { Container, Box, Typography, TextField, Paper } from '@material-ui/core'
 
-//Icons
-import ImageIcon from '@material-ui/icons/Image';
+//Footer
+import Contact from './Contact'
 
 //Days
 let days = []
@@ -101,6 +101,8 @@ const App = () => {
             <Typography variant="h7">{getDigimonName()}</Typography>
           </Paper>
       </Box>
+
+      <Contact/>
 
     </Container>
   );
